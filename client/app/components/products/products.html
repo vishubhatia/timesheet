@@ -1,0 +1,12 @@
+<navbar cart-item-count="2"></navbar>
+<div class="col-sm-12">
+  <div class="pull-right btn-group">
+    <button class="btn btn-sm btn-primary" ng-click="$ctrl.changeListType('grid')">Grid</button>
+    <button class="btn btn-sm btn-primary" ng-click="$ctrl.changeListType('list')">List</button>
+  </div>
+</div>
+<div class="clearfix"></div>
+<br/>
+<div>
+  <products-list list-type="{{$ctrl.listType}}" products="$ctrl.products"></products-list>
+</div>

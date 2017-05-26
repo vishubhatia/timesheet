@@ -1,0 +1,6 @@
+<div class="col-sm-12">
+  <div ng-class="{ 'col-sm-3' : $ctrl.listType === 'grid' }" ng-repeat="item in $ctrl.products">
+    <product-thumbnail ng-show="$ctrl.listType === 'grid'" product="item"></product-thumbnail>
+    <product-list-item ng-show="$ctrl.listType === 'list'" product="item"></product-list-item>
+  </div>
+</div>
