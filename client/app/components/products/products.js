@@ -1,8 +1,10 @@
 import angular from 'angular';
 import uiRouter from 'angular-ui-router';
-import { changeListType } from '../../actions/products';
+import ProductsCreators from '../../redux/products';
 import productsList from './productsList/productsList';
 import template from './products.html';
+
+const  { fetchProducts, changeListType } = ProductsCreators;
 
 let products = angular.module('products', [
   uiRouter,
@@ -25,17 +27,19 @@ let products = angular.module('products', [
     bindings: {},
     template,
     controller: class {
-      constructor($scope, $ngRedux) {
+      constructor($scope, $ngRedux, $timeout) {
         'ngInject';
         let unsubscribe = $ngRedux.connect(this.mapStateToThis, {
           changeListType
         })(this);
         $scope.$on('$destroy', unsubscribe);
+        $ngRedux.dispatch(fetchProducts());
       }
-      mapStateToThis({ products }) {
+      mapStateToThis({ products, router }) {
         return {
           products: products.items,
-          listType: products.listType
+          listType: products.listType,
+          router
         }
       }
     }

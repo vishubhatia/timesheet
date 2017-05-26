@@ -1,6 +1,7 @@
 import { combineReducers } from 'redux';
-import products from './products';
+import { router } from 'redux-ui-router';
 
 export default combineReducers({
-  products
+  products: require('./products').reduer,
+  router
 });

@@ -3,7 +3,7 @@ import uiRouter from 'angular-ui-router';
 import ngRedux from 'ng-redux';
 import { createLogger } from 'redux-logger'
 import { createStore } from 'redux';
-import reducer from './reducers'
+import createSagaMiddleware from 'redux-saga';
 import Common from './common/common';
 import Components from './components/components';
 import template from './app.html';
@@ -11,8 +11,11 @@ import 'normalize.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './app.scss';
 
+import rootSaga from './sagas';
+import rootReducer from './redux';
+const sagaMiddleware = createSagaMiddleware()
 
-const logger = createLogger({  
+const logger = createLogger({
   level: 'info',
   collapsed: true
 });
@@ -25,8 +28,11 @@ angular.module('app', [
 ])
   .config(($locationProvider, $ngReduxProvider) => {
     "ngInject";
-    $ngReduxProvider.createStoreWith(reducer, [logger]);
+    $ngReduxProvider.createStoreWith(rootReducer, [sagaMiddleware, logger]);
     $locationProvider.html5Mode(true).hashPrefix('!');
+  }).run(($ngRedux) => {
+    "ngInject";
+    sagaMiddleware.run(rootSaga);
   })
 
   .component('app', {
@@ -34,8 +40,5 @@ angular.module('app', [
   });
 
 
-const store = createStore(reducer);
 
-store.subscribe(() => {
-  console.log(arguments);
-})
+
