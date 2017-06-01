@@ -1,0 +1,37 @@
+<div class="col-md-7 center-element login-page">
+    <div class="row">
+        <div class="col-sm-7">
+            <div class="col-sm-12">
+                <h1>ThinkSys Software Pvt. Ltd.</h1>
+            </div>
+            <div class="col-sm-12">
+                <img ng-src="{{$ctrl.staticContent.logoImage}}" width="100%">
+            </div>
+        </div>
+        <div class="col-sm-5">
+            <div class="login-box">
+                <div class="login-heading">
+                    <h3>Sign in</h3>
+                </div>
+                <div class="login-body">
+
+                    <uib-tabset active="$ctrl.activeTab">
+
+                        <uib-tab heading="ThinkSys Login">
+                            <ldap ldap-schema="$ctrl.ldapSchema"></ldap>
+                        </uib-tab>
+                        <uib-tab heading="Local Login">
+                            <local local-schema="$ctrl.localSchema"></local>
+                        </uib-tab>
+                    </uib-tabset>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
+
+
+<!--<sidebar></sidebar>-->
