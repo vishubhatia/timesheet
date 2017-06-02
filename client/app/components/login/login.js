@@ -2,6 +2,7 @@ import angular from 'angular';
 import uiRouter from 'angular-ui-router';
 import formly from 'angular-formly';
 import formlyBootstrapTemplates from 'angular-formly-templates-bootstrap';
+import ProductsCreators from '../../redux/login';
 import Local from './local/local';
 import Ldap from './ldap/ldap';
 import template from './login.html';

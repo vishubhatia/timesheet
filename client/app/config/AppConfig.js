@@ -1,3 +1,3 @@
 export default {
-  baseUrl : '/'
+  baseUrl : 'http://demo.thinksys.com:4001/api'
 }
