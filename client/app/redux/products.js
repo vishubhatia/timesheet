@@ -1,7 +1,7 @@
 import { createActions, createReducer } from 'reduxsauce';
 
 const { Types, Creators } = createActions({
-  fetchProducts: [],
+  fetchProducts: [], 
   fetchProductsSuccess: ['products'],
   fetchProductsError: [],
   changeListType: ['listType']

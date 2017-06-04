@@ -14,6 +14,7 @@ const INITIAL_STATE = {
     isFetching: false,
     email: "",
     password: "",
+    remember: true,
     pause: false,
     errors: {}
 }

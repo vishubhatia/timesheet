@@ -31,7 +31,7 @@ let products = angular.module('products', [
         'ngInject';
         let unsubscribe = $ngRedux.connect(this.mapStateToThis, {
           changeListType
-        })(this);
+        })(this); // connects component to redux
         $scope.$on('$destroy', unsubscribe);
         $ngRedux.dispatch(fetchProducts());
       }

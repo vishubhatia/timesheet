@@ -4,7 +4,7 @@ const productThumbnail = angular.module('productThumbnail', [
 
 ])
 
-  .component('productThumbnail', {
+  .component('  ', {
     bindings: {
       product: '<'
     },

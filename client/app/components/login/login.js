@@ -44,18 +44,14 @@ let loginModule = angular.module('login', [
     controller: class {
         constructor($scope, $ngRedux, $timeout) {
         'ngInject';
-        let unsubscribe = $ngRedux.connect(this.mapStateToThis, {
-          changeListType
-        })(this);
+          this.user = {
+          email: '',
+          password: '',
+          remember: true
+          };
+        let unsubscribe = $ngRedux.connect(this.user)(this);
         $scope.$on('$destroy', unsubscribe);
-        $ngRedux.dispatch(fetchProducts());
-      }
-      mapStateToThis({ products, router }) {
-        return {
-          products: products.items,
-          listType: products.listType,
-          router
-        }
+        $ngRedux.dispatch(loginRequest(this.user.email, this.user,password));
       }
     }
   })

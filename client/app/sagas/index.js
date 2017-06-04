@@ -27,7 +27,7 @@ import {
 
 export default function* root() {
   return yield all([
-    takeEvery(LoginTypes.LOGIN_REQUEST, watchLoginRequest, require('../services/products').create())
+    takeEvery(LoginTypes.LOGIN_REQUEST, login_process, require('../services/login').create())
   ])
 }
 
