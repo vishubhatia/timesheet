@@ -28,7 +28,7 @@ const loginSuccess = (state = INITIAL_STATE) => {
 }
 
 const loginFailure = (state = INITIAL_STATE) => {
-  return { ...state, isFetching: false, errors: action.errors, pause: true};
+  return { ...state, isFetching: false,  pause: true};
 }
 
 

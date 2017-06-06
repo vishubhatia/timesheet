@@ -9,7 +9,7 @@ export function* login_process() {
  }
 // function* login_process(action) {
 //     try {
-//         yield delay(1000); 
+//         yield delay(1000);
 //         const payload = yield call(
 //             postLoginToAPI
 //         );
